@@ -58,6 +58,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Samples:
+      - "One Delivery": pdfs/One_Delivery_Samples.pdf
+      - "Future of Beauty": pdfs/The_Future_of_Beauty.pdf
       - "API Reference": pdfs/API_Reference.pdf
       - "Developer Guide": pdfs/Developer_Guide.pdf
       - "Split Ticketing Guide": pdfs/Split_Ticketing_Guide.pdf

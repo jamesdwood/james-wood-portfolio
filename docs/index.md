@@ -2,13 +2,29 @@
 
 Welcome. I'm a technical writer and content strategist with over 20 years of experience across API documentation, developer guides, and content architecture.
 
-This portfolio showcases **anonymized samples** from my work as the sole author of a complete developer documentation suite for a major international travel technology platform — 320+ articles across 6 API products.
+This portfolio highlights a curated selection of my work across multiple industries. It features deep, technical API samples from my time leading the developer documentation suite for a major international travel technology platform, alongside strategic content and publications developed for the retail, beauty, and logistics sectors.
 
 ---
 
 ## What you'll find here
 
 <div class="grid cards" markdown>
+
+- :material-truck-delivery:{ .lg .middle } **Logistics & Delivery**
+
+    ---
+
+    Overview of operational workflows and user-facing materials developed for the One Delivery logistics platform.
+
+    [:octicons-arrow-right-24: View sample](pdfs/One_Delivery_Samples.pdf)
+
+- :material-storefront:{ .lg .middle } **The Future of Beauty**
+
+    ---
+
+    Strategic thought leadership and high-level retail analysis pieces constructed for the beauty sector.
+
+    [:octicons-arrow-right-24: View sample](pdfs/The_Future_of_Beauty.pdf)
 
 - :material-api:{ .lg .middle } **API Reference**
 
