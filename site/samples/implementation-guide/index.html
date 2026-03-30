@@ -1,0 +1,1242 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="API documentation, developer guides, and docs-as-code samples from 20+ years of technical writing experience.">
+      
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/portfolio/samples/implementation-guide/">
+      
+      
+        <link rel="prev" href="../developer-guide/">
+      
+      
+        <link rel="next" href="../release-notes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Implementation Guide - James Wood — Technical Writing Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementation-guide-carrier-c-france" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="James Wood — Technical Writing Portfolio" class="md-header__button md-logo" aria-label="James Wood — Technical Writing Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            James Wood — Technical Writing Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementation Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../api-reference/" class="md-tabs__link">
+          
+  
+  
+  Samples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="James Wood — Technical Writing Portfolio" class="md-nav__button md-logo" aria-label="James Wood — Technical Writing Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    James Wood — Technical Writing Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-api-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available API messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accreditation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#station-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Station codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-station-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special station codes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special station codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-stations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared stations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-stations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group stations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combination-fares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combination fares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loyalty-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loyalty cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discount-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discount cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-sales-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After-sales operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="After-sales operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exchanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchanges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cancellations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conceptual-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-as-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs-as-Code Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-api-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available API messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accreditation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accreditation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#station-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Station codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-station-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special station codes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special station codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-stations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared stations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-stations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Group stations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combination-fares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combination fares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loyalty-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loyalty cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discount-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discount cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-sales-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After-sales operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="After-sales operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exchanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exchanges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cancellations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="implementation-guide-carrier-c-france">Implementation Guide — Carrier C (France)<a class="headerlink" href="#implementation-guide-carrier-c-france" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Sample type</p>
+<p><strong>Carrier-specific implementation guide</strong> — Covers accreditation requirements, station codes, fare rules, discount cards, and loyalty programs for a specific rail operator integration.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Context</p>
+<p>This sample documents the implementation specifics for a major French rail carrier. It guides integration partners through the unique requirements, station code conventions, fare combinations, and discount card handling needed to go live with this supply channel.</p>
+</div>
+<hr />
+<h2 id="available-api-messages">Available API messages<a class="headerlink" href="#available-api-messages" title="Permanent link">&para;</a></h2>
+<p>The following API messages are <strong>not available</strong> for this carrier:</p>
+<ul>
+<li>addPaymentRequest w/Confirm¹</li>
+<li>authenticatePayerRequest</li>
+<li>deleteCardholderInfoRequest</li>
+<li>deletePaymentTokenRequest</li>
+<li>generatePaymentTokenRequest</li>
+<li>getIntermediateTravelPointsRequest</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>¹ Available in certain circumstances when the platform operator is the merchant of record.</p>
+</div>
+<h2 id="accreditation">Accreditation<a class="headerlink" href="#accreditation" title="Permanent link">&para;</a></h2>
+<p>The carrier's quality subsidiary ensures the quality of all products and services before their distribution to the public through sales and after-sales simulations on test environments. The quality team runs a comprehensive suite of tests against web applications to ensure all accreditation standards are met before a production launch.</p>
+<p>For information about the accreditation requirements for each Supply Channel, please see the accreditation requirements summary.</p>
+<h2 id="station-codes">Station codes<a class="headerlink" href="#station-codes" title="Permanent link">&para;</a></h2>
+<p>A full list of station data codes for this carrier is available through the <strong>Published Data API</strong>, using the carrier identifier as the selection parameter.</p>
+<p><strong>Example request</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;soapenv:Envelope</span><span class="w"> </span><span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">xmlns:pub=</span><span class="s">&quot;http://example.com/ws/publishing&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;soapenv:Header/&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&lt;soapenv:Body&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&lt;pub:dataRequest</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;station&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&lt;pub:parameters&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">&lt;pub:selection&gt;</span>CARRIER_C<span class="nt">&lt;/pub:selection&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&lt;/pub:parameters&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&lt;/pub:dataRequest&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&lt;/soapenv:Body&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">&lt;/soapenv:Envelope&gt;</span>
+</code></pre></div></p>
+<p>The station file structure for this carrier's stations is the same as all other suppliers.</p>
+<p><strong>Example response</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;pub:station</span><span class="w"> </span><span class="na">code=</span><span class="s">&quot;AT@EB&quot;</span><span class="w"> </span><span class="na">countryCode=</span><span class="s">&quot;AT&quot;</span><span class="w"> </span><span class="na">fareStation=</span><span class="s">&quot;OUTPUT_ONLY&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">itineraryStation=</span><span class="s">&quot;YES&quot;</span><span class="w"> </span><span class="na">mainStation=</span><span class="s">&quot;NO&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Ebensee&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">timeZone=</span><span class="s">&quot;Europe/Vienna&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Group&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;81901929&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;UIC_UNI&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;ATEBE&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;CODE_RESARAIL&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;Ebensee&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ALIAS&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nt">&lt;/pub:station&gt;</span>
+</code></pre></div></p>
+<h2 id="special-station-codes">Special station codes<a class="headerlink" href="#special-station-codes" title="Permanent link">&para;</a></h2>
+<p>In addition to standard station codes, the implementation additionally supports station codes for two types of special stations:</p>
+<ul>
+<li><strong>Shared stations</strong></li>
+<li><strong>Group stations</strong></li>
+</ul>
+<h3 id="shared-stations">Shared stations<a class="headerlink" href="#shared-stations" title="Permanent link">&para;</a></h3>
+<p>A shared station is located on a route that crosses an international border and is serviced by two carriers. For example, London St. Pancras International is serviced by both this carrier and the UK carrier.</p>
+<p><strong>Example</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;pub:station</span><span class="w"> </span><span class="na">code=</span><span class="s">&quot;GBQQS&quot;</span><span class="w"> </span><span class="na">countryCode=</span><span class="s">&quot;GB&quot;</span><span class="w"> </span><span class="na">fareStation=</span><span class="s">&quot;OUTPUT_ONLY&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">iataCode=</span><span class="s">&quot;QQS&quot;</span><span class="w"> </span><span class="na">itineraryStation=</span><span class="s">&quot;YES&quot;</span><span class="w"> </span><span class="na">latitude=</span><span class="s">&quot;51.532420&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">longitude=</span><span class="s">&quot;-0.126030&quot;</span><span class="w"> </span><span class="na">mainStation=</span><span class="s">&quot;NO&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="na">name=</span><span class="s">&quot;London St Pancras International&quot;</span><span class="w"> </span><span class="na">timeZone=</span><span class="s">&quot;Europe/London&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="na">type=</span><span class="s">&quot;Station&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;SPX&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;CRS&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_A&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;St Pancras International&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_A&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ALIAS&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;70154005&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;UIC_UNI&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;GBSPX&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;CODE_RESARAIL&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;London St Pancras&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ALIAS&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nt">&lt;/pub:station&gt;</span>
+</code></pre></div></p>
+<p>The station code for a shared station is the same for both Suppliers, and the platform automatically determines which one to use when a shopping request is submitted.</p>
+<h3 id="group-stations">Group stations<a class="headerlink" href="#group-stations" title="Permanent link">&para;</a></h3>
+<p>A group station is a single station code that represents a collection of member stations within a geographical area, such as all the stations in a major city. Group station codes have a <code>type="Group"</code> attribute in the Published Data API to differentiate them from single-station codes <code>type="Station"</code>.</p>
+<p><strong>Example</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;pub:station</span><span class="w"> </span><span class="na">code=</span><span class="s">&quot;FRABP&quot;</span><span class="w"> </span><span class="na">countryCode=</span><span class="s">&quot;FR&quot;</span><span class="w"> </span><span class="na">fareStation=</span><span class="s">&quot;OUTPUT_ONLY&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">itineraryStation=</span><span class="s">&quot;YES&quot;</span><span class="w"> </span><span class="na">mainStation=</span><span class="s">&quot;NO&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Colomiers (localite)&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">timeZone=</span><span class="s">&quot;Europe/Paris&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Group&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;3161146&quot;</span><span class="w"> </span><span class="na">codeType=</span><span class="s">&quot;UIC_UNI&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;CODE&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;Colomiers (localite)&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ALIAS&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&lt;pub:supplier</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;CARRIER_C&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">&lt;/pub:station&gt;</span>
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>When a group station is specified as the origin or destination in the shopping request, the platform will return an individual member station in the response. For example, a journey to Paris might return the destination of Paris Gare du Nord.</p>
+</div>
+<h2 id="combination-fares">Combination fares<a class="headerlink" href="#combination-fares" title="Permanent link">&para;</a></h2>
+<p>Certain fares for outbound/return can only be used in combination with each other.</p>
+<p>In this case, the Point-to-Point Price for each leg in the shopping response includes a <code>&lt;compatiblePrices&gt;</code> element containing a list of <code>&lt;compatiblePriceIDRef&gt;</code> elements referencing the corresponding outbound or return prices with which the fare can be combined.</p>
+<p><strong>Example</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;compatiblePrices&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&lt;compatiblePriceIDRef&gt;</span>PRICE_1_1<span class="nt">&lt;/compatiblePriceIDRef&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&lt;compatiblePriceIDRef&gt;</span>PRICE_1_2<span class="nt">&lt;/compatiblePriceIDRef&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&lt;compatiblePriceIDRef&gt;</span>PRICE_1_3<span class="nt">&lt;/compatiblePriceIDRef&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nt">&lt;/compatiblePrices&gt;</span>
+</code></pre></div></p>
+<p>When the <code>createBookingRequest</code> message is submitted for a round trip, the platform verifies that the chosen Point-to-Point Prices are compatible with each other and <strong>returns an error if not</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Combination fare lists are included when a particular Ticketable Fare can only be combined with specific return Ticketable Fares. If there is no restriction based on the fares included in the Ticketable Fare, no combination fare list is provided.</p>
+</div>
+<h2 id="loyalty-cards">Loyalty cards<a class="headerlink" href="#loyalty-cards" title="Permanent link">&para;</a></h2>
+<p>This carrier offers the ability to collect rewards through loyalty program(s). The first and last name on the order must match the name on the loyalty card for the loyalty card to be accepted.</p>
+<p>A list of valid loyalty programs can be retrieved through the Published Data API.</p>
+<p><strong>Example request</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;soapenv:Envelope</span><span class="w"> </span><span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">xmlns:pub=</span><span class="s">&quot;http://example.com/ws/publishing&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&lt;soapenv:Header/&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&lt;soapenv:Body&gt;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&lt;pub:dataRequest</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loyaltyCard&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&lt;/pub:dataRequest&gt;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&lt;/soapenv:Body&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nt">&lt;/soapenv:Envelope&gt;</span>
+</code></pre></div></p>
+<p><strong>Example response</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;pub:loyaltyCard</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Standard&quot;</span><span class="w"> </span><span class="na">marketingCarrier=</span><span class="s">&quot;CARRIER_C_EXPRESS&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="na">program=</span><span class="s">&quot;FR_STANDARD&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">&lt;pub:loyaltyCard</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Premium&quot;</span><span class="w"> </span><span class="na">marketingCarrier=</span><span class="s">&quot;CARRIER_C_EXPRESS&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="na">program=</span><span class="s">&quot;FR_PREMIUM&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">&lt;pub:loyaltyCard</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Premium Plus&quot;</span><span class="w"> </span><span class="na">marketingCarrier=</span><span class="s">&quot;CARRIER_C_INTERCITY&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="na">program=</span><span class="s">&quot;FR_PREMIUM_PLUS&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">&lt;pub:loyaltyCard</span><span class="w"> </span><span class="na">description=</span><span class="s">&quot;Other card&quot;</span><span class="w"> </span><span class="na">marketingCarrier=</span><span class="s">&quot;CARRIER_C_INTERCITY&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="na">program=</span><span class="s">&quot;FR_OTHER&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div></p>
+<p>The presence of a <code>&lt;loyaltyCard&gt;</code> element in the shopping response indicates that the loyalty program is available for a particular Leg Solution.</p>
+<h2 id="discount-cards">Discount cards<a class="headerlink" href="#discount-cards" title="Permanent link">&para;</a></h2>
+<p>Carrier C supports a number of discount cards that enable passengers to access reduced fares. Discount card data can be provided in the shopping request and is passed through to the carrier's inventory system to return eligible discounted fares.</p>
+<p>The following discount cards are supported:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Card</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Age restriction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Youth Card</td>
+<td style="text-align: left;">50% discount on eligible fares</td>
+<td style="text-align: left;">12–27</td>
+</tr>
+<tr>
+<td style="text-align: left;">Senior Card</td>
+<td style="text-align: left;">25% off peak, 50% off off-peak</td>
+<td style="text-align: left;">60+</td>
+</tr>
+<tr>
+<td style="text-align: left;">Weekend Card</td>
+<td style="text-align: left;">25% discount for weekend travel</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr>
+<td style="text-align: left;">Family Card</td>
+<td style="text-align: left;">Group discount for 1–3 children travelling with an adult</td>
+<td style="text-align: left;">Adult + children (4–11)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong> — Including a discount card in the shopping request:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;com:passengerSpecification</span><span class="w"> </span><span class="na">passengerTypeCode=</span><span class="s">&quot;A&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&lt;com:age&gt;</span>25<span class="nt">&lt;/com:age&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&lt;com:discountCards&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&lt;com:discountCard&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">&lt;com:discountCardProgram&gt;</span>FR_YOUTH_CARD<span class="nt">&lt;/com:discountCardProgram&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">&lt;com:discountCardNumber&gt;</span>1234567890<span class="nt">&lt;/com:discountCardNumber&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&lt;/com:discountCard&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">&lt;/com:discountCards&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nt">&lt;/com:passengerSpecification&gt;</span>
+</code></pre></div></p>
+<h2 id="after-sales-operations">After-sales operations<a class="headerlink" href="#after-sales-operations" title="Permanent link">&para;</a></h2>
+<h3 id="exchanges">Exchanges<a class="headerlink" href="#exchanges" title="Permanent link">&para;</a></h3>
+<p>For this carrier, exchanges are supported where the fare conditions permit. The exchange workflow follows the standard API pattern:</p>
+<ol>
+<li>Call <code>retrieveExchangeSummaryRequest</code> to get the available exchange options.</li>
+<li>Call <code>searchForExchangeTicketsRequest</code> with the new journey details.</li>
+<li>Call <code>processExchangeRequest</code> to complete the exchange.</li>
+</ol>
+<h3 id="cancellations">Cancellations<a class="headerlink" href="#cancellations" title="Permanent link">&para;</a></h3>
+<p>Cancellation rules vary by fare type. Some promotional fares are non-refundable. For refundable fares, cancellation fees may apply depending on how close to departure the cancellation is made.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always retrieve the cancellation summary first using <code>retrieveCancellationSummaryRequest</code> before processing the cancellation. The summary will show the applicable cancellation fee and the expected refund amount.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/yourusername" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,66 @@
+site_name: "James Wood — Technical Writing Portfolio"
+site_description: "API documentation, developer guides, and docs-as-code samples from 20+ years of technical writing experience."
+site_url: "https://yourusername.github.io/portfolio"
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Samples:
+      - "API Reference": samples/api-reference.md
+      - "Developer Guide": samples/developer-guide.md
+      - "Implementation Guide": samples/implementation-guide.md
+      - "Release Notes": samples/release-notes.md
+      - "Conceptual Overview": samples/conceptual-overview.md
+      - "Docs-as-Code Pipeline": samples/docs-as-code.md
+  - About: about.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/yourprofile
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername
