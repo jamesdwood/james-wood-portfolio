@@ -26,11 +26,11 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     [:octicons-arrow-right-24: View sample](samples/developer-guide.md)
 
-- :material-train:{ .lg .middle } **Implementation Guide**
+- :material-train:{ .lg .middle } **Split Ticketing Guide**
 
     ---
 
-    Carrier-specific implementation guide covering accreditation, station codes, fare rules, and discount cards.
+    Technical How-To guide covering the complex business logic of algorithmic Split Ticketing. covering accreditation, station codes, fare rules, and discount cards.
 
     [:octicons-arrow-right-24: View sample](samples/implementation-guide.md)
 
@@ -42,7 +42,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     [:octicons-arrow-right-24: View sample](samples/release-notes.md)
 
-- :material-lightbulb:{ .lg .middle } **Conceptual Overview**
+- :material-lightbulb:{ .lg .middle } **Platform Architecture**
 
     ---
 

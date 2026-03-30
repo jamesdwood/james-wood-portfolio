@@ -52,9 +52,9 @@ nav:
   - Samples:
       - "API Reference": samples/api-reference.md
       - "Developer Guide": samples/developer-guide.md
-      - "Implementation Guide": samples/implementation-guide.md
+      - "Split Ticketing Guide": samples/implementation-guide.md
       - "Release Notes": samples/release-notes.md
-      - "Conceptual Overview": samples/conceptual-overview.md
+      - "Platform Architecture": samples/conceptual-overview.md
       - "Docs-as-Code Pipeline": samples/docs-as-code.md
   - About: about.md
 
