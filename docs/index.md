@@ -30,7 +30,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     ---
 
-    Technical How-To guide covering the complex business logic of algorithmic Split Ticketing. covering accreditation, station codes, fare rules, and discount cards.
+    Technical How-To guide covering the complex business logic of algorithmic Split Ticketing.
 
     [:octicons-arrow-right-24: View sample](samples/implementation-guide.md)
 
@@ -46,7 +46,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     ---
 
-    High-level introduction to environments, access procedures, and the platform accreditation process.
+    High-level architectural overview incorporating OSDM standards and API abstraction layers.
 
     [:octicons-arrow-right-24: View sample](samples/conceptual-overview.md)
 
