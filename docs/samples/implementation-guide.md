@@ -10,7 +10,7 @@ For the UK market only, SilverCore provides Partners the possibility of offering
 
 The following diagram shows how a journey from Manchester Piccadilly to Sheffield is split into two or more tickets.  Please note that the prices shown are purely representative and serve only to explain the concept of Split Ticketing.
 
-![Screenshot 2025-05-08 at 15.56.02.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/Screenshot%202025-05-08%20at%2015.56.02.png)
+
 
 ## Supported markets
 
@@ -47,7 +47,7 @@ On those journeys where passengers are not required to change services, SilverCo
 
 ## Shopping and booking flow in SilverCore for Split Tickets
 
-![SilverRail diagram collection-Split Ticketing flow.drawio.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/SilverRail%20diagram%20collection-Split%20Ticketing%20flow.drawio.png)
+
 
 
 ## Shopping for Split Ticket fares
@@ -935,27 +935,27 @@ This section presents several examples demonstrating the circumstances in which 
 
 Referring to our journey from Manchester Piccadilly to Sheffield, which has a single Travel Segment covered by two Ticketable Fares, SilverCore will return the two `subSegment elements` for the Travel Segment:
 
-![Screenshot 2025-05-08 at 15.54.31.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/Screenshot%202025-05-08%20at%2015.54.31.png)
+
 
 **Example 2 – Two Ticketable Fares covering the first Travel Segment and one Ticketable Fare covering the second Travel Segment**
 
 If two Ticketable Fares cover the first Travel Segment and a single Ticketable Fare covers the second Travel Segment, SilverCore will return two `subSegment` elements for the first Travel Segment but not for the second:
 
-![Screenshot 2025-05-08 at 15.51.25.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/Screenshot%202025-05-08%20at%2015.51.25.png)
+
 
 **Example 3 – One Ticketable Fare covering part of the first Travel Segment and one Ticketable Fare covering the remainder of the first Travel Segment and the second Travel Segment
 **
 
 If a Ticketable Fare only covers part of a Travel Segment and another Ticketable Fare covers the remainder of that Travel Segment and the whole of another Travel Segment, SilverCore will return the `subSegment` element for the first Travel Segment but not for the second:
 
-![Screenshot 2025-05-08 at 15.52.18.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/Screenshot%202025-05-08%20at%2015.52.18.png)
+
 
 **Example 4 – One Ticketable Fare covering the first Travel Segment and one Ticketable Fare covering the second Travel Segment
 **
 
 If a Ticketable Fare covers a Travel Segment and another Ticketable Fare covers a second (or third, etc) Travel Segment, SilverCore will not return the `subSegment` element for either Travel Segment:
 
-![Screenshot 2025-05-08 at 15.52.48.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/Screenshot%202025-05-08%20at%2015.52.48.png)
+
 
 **validateBookingRecordResponse for Example 1** (truncated):
 
@@ -1507,7 +1507,7 @@ Canceling bookings with Split Ticket fares in SilverCore follows the process fol
 
 ### Full cancel
 
-![SilverRail diagram collection-Split Ticketing Full Cancel.drawio.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/SilverRail%20diagram%20collection-Split%20Ticketing%20Full%20Cancel.drawio.png)
+
 
 #### Step 1 – Find out if an order can be fully canceled
 
@@ -1748,7 +1748,7 @@ After successfully canceling an order, and depending on the order status before 
 
 When partially canceling an order, all the Ticketable Fares for a given Leg Solution must be canceled together.
 
-![SilverRail diagram collection-Split Ticketing Partial Cancel.drawio.png](https://cdn.document360.io/c53b2e89-8de3-47ad-adf4-5a70ab761260/Images/Documentation/SilverRail%20diagram%20collection-Split%20Ticketing%20Partial%20Cancel.drawio.png)
+
 
 #### Step 1 – Find out if an order can be partially canceled
 

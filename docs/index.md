@@ -16,7 +16,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     Element-by-element SOAP/XML response documentation with schema annotations, attribute tables, and code examples.
 
-    [:octicons-arrow-right-24: View sample](samples/api-reference.md)
+    [:octicons-arrow-right-24: View sample](pdfs/API_Reference.pdf)
 
 - :material-book-open-variant:{ .lg .middle } **Developer Guide**
 
@@ -24,7 +24,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     End-to-end workflow documentation guiding developers through a core booking operation.
 
-    [:octicons-arrow-right-24: View sample](samples/developer-guide.md)
+    [:octicons-arrow-right-24: View sample](pdfs/Developer_Guide.pdf)
 
 - :material-train:{ .lg .middle } **Split Ticketing Guide**
 
@@ -32,7 +32,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     Technical How-To guide covering the complex business logic of algorithmic Split Ticketing.
 
-    [:octicons-arrow-right-24: View sample](samples/implementation-guide.md)
+    [:octicons-arrow-right-24: View sample](pdfs/Split_Ticketing_Guide.pdf)
 
 - :material-note-text:{ .lg .middle } **Release Notes**
 
@@ -40,7 +40,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     Schema change analysis with breaking/non-breaking classification, error code documentation, and code examples.
 
-    [:octicons-arrow-right-24: View sample](samples/release-notes.md)
+    [:octicons-arrow-right-24: View sample](pdfs/Release_Notes.pdf)
 
 - :material-lightbulb:{ .lg .middle } **Platform Architecture**
 
@@ -48,7 +48,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     High-level architectural overview incorporating OSDM standards and API abstraction layers.
 
-    [:octicons-arrow-right-24: View sample](samples/conceptual-overview.md)
+    [:octicons-arrow-right-24: View sample](pdfs/SilverOne_Platform_Architecture.pdf)
 
 - :material-git:{ .lg .middle } **Docs-as-Code Pipeline**
 
@@ -56,7 +56,7 @@ This portfolio showcases **anonymized samples** from my work as the sole author 
 
     How I designed a publishing workflow using Git, Markdown, CI/CD, and the Document360 API.
 
-    [:octicons-arrow-right-24: View sample](samples/docs-as-code.md)
+    [:octicons-arrow-right-24: View sample](pdfs/Docs_as_Code_Pipeline.pdf)
 
 </div>
 

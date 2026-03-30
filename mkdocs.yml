@@ -58,11 +58,11 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Samples:
-      - "API Reference": samples/api-reference.md
-      - "Developer Guide": samples/developer-guide.md
-      - "Split Ticketing Guide": samples/implementation-guide.md
-      - "Platform Architecture": samples/conceptual-overview.md
-      - "Docs-as-Code Pipeline": samples/docs-as-code.md
+      - "API Reference": pdfs/API_Reference.pdf
+      - "Developer Guide": pdfs/Developer_Guide.pdf
+      - "Split Ticketing Guide": pdfs/Split_Ticketing_Guide.pdf
+      - "Platform Architecture": pdfs/SilverOne_Platform_Architecture.pdf
+      - "Docs-as-Code Pipeline": pdfs/Docs_as_Code_Pipeline.pdf
   - About: about.md
 
 extra:
@@ -71,3 +71,4 @@ extra:
       link: https://linkedin.com/in/james-wood-techwriter
     - icon: fontawesome/brands/github
       link: https://github.com/jamesdwood
+
